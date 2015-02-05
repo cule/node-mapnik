@@ -65,6 +65,7 @@ install:
   - ps: scripts\build_against_sdk_02-copy-deps-to-bindingdir.ps1
   - powershell scripts\show_module_runtime.ps1 %CD%
   - ps: scripts\build_against_sdk_03-write-mapnik.settings.ps1
+  - .\lib\binding\node-v%nodejs_version%-win32-%platform%\shapeindex test\data\world_merc.shp
   - npm test
   - node-pre-gyp package testpackage %BUILD_ARGS%
   - SET CM=%APPVEYOR_REPO_COMMIT_MESSAGE%
